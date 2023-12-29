@@ -10,6 +10,7 @@
     <button
       class="btn__option"
       *ngFor="let option of questionSelected.options; let i = index"
+      (click)="playerChoose(option.alias)"
     >
       {{ option.name }}
     </button>

@@ -35,4 +35,19 @@ export class QuizzComponent implements OnInit {
       this.questionSelected = this.questions[this.questionIndex];
     }
   }
+
+  playerChoose(value: string) {
+    this.answers.push(value);
+    this.nextStep();
+  }
+
+  async nextStep() {
+    this.questionIndex += 1;
+
+    if (this.questionMaxIndex > this.questionIndex) {
+      this.questionSelected = this.questions[this.questionIndex];
+    } else {
+      this.finished = true;
+    }
+  }
 }
