@@ -17,6 +17,7 @@ export class QuizzComponent implements OnInit {
 
   answers: string[] = [];
   answerSelected: string = '';
+  result: string = '';
 
   questionIndex: number = 0;
   questionMaxIndex: number = 0;
@@ -47,7 +48,22 @@ export class QuizzComponent implements OnInit {
     if (this.questionMaxIndex > this.questionIndex) {
       this.questionSelected = this.questions[this.questionIndex];
     } else {
+      const finalAnswer: string = await this.checkResult(this.answers);
       this.finished = true;
+      this.result = finalAnswer === 'B' ? 'Hero' : 'Villain';
+      this.answerSelected =
+        quizz_questions.results[
+          finalAnswer as keyof typeof quizz_questions.results
+        ];
     }
+  }
+
+  async checkResult(answersValues: string[]) {
+    return answersValues.reduce((previous, current, _i, arr) =>
+      arr.filter((item) => item === previous).length >
+      arr.filter((item) => item === current).length
+        ? previous
+        : current
+    );
   }
 }

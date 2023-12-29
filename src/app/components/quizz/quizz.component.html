@@ -15,8 +15,8 @@
       {{ option.name }}
     </button>
   </div>
-  <div *ngIf="finished" class="quizz__results">
+  <div *ngIf="finished" class="quizz__results {{ result }}">
     <p>O seu resultado é:</p>
-    <h1>Você muito provavelmente seria um super Herói!</h1>
+    <h1>{{ answerSelected }}</h1>
   </div>
 </div>
