@@ -1,19 +1,20 @@
 <div class="quizz__container">
   <div class="quizz__logo">
     <img src="assets/img/logo.png" alt="Buzzfeed Logo" />
-    <h3>Você seria um Herói ou Vilão ?</h3>
+    <h3>{{ title }}</h3>
   </div>
-  <div class="quizz__question">
-    <h3>Qual super poder você escolheria ?</h3>
+  <div *ngIf="!finished" class="quizz__question">
+    <h3>{{ questionSelected.question }}</h3>
   </div>
-  <div class="quizz__options">
-    <button class="btn__option">Voar</button>
-    <button class="btn__option">Raios-Lasers</button>
-    <button class="btn__option">Explodir coisas</button>
-    <button class="btn__option">Curar feridas</button>
-    <button class="btn__option">Soltar fogo pelas mãos</button>
+  <div *ngIf="!finished" class="quizz__options">
+    <button
+      class="btn__option"
+      *ngFor="let option of questionSelected.options; let i = index"
+    >
+      {{ option.name }}
+    </button>
   </div>
-  <div class="quizz__results">
+  <div *ngIf="finished" class="quizz__results">
     <p>O seu resultado é:</p>
     <h1>Você muito provavelmente seria um super Herói!</h1>
   </div>
