@@ -87,6 +87,14 @@
   justify-content: center;
   align-items: center;
 
+  button {
+    margin-top: 12px;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 16px 31px;
+    border-radius: 8px;
+  }
+
   h1 {
     font-size: 2rem;
     font-weight: bold;

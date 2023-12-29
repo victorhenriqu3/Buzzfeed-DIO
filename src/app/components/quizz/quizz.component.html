@@ -18,5 +18,6 @@
   <div *ngIf="finished" class="quizz__results {{ result }}">
     <p>O seu resultado é:</p>
     <h1>{{ answerSelected }}</h1>
+    <button (click)="clearResult()">Reiniciar ?</button>
   </div>
 </div>

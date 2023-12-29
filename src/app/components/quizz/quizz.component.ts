@@ -66,4 +66,12 @@ export class QuizzComponent implements OnInit {
         : current
     );
   }
+
+  async clearResult() {
+    this.finished = false;
+    this.answers = [];
+    this.answerSelected = '';
+    this.result = '';
+    this.questionIndex = 0;
+  }
 }
